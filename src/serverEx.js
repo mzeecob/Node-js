@@ -5,10 +5,14 @@ var fs=require('fs');
 var myReadStream = fs.createReadStream(__dirname + '/read.txt');
 var myWriteStream = fs.createWriteStream(__dirname + '/write.txt');
 
-myReadStream.on('data', function(chunk){
-    console.log("new chunk recived");
-    myWriteStream.write(chunk);
-});
+// // do it with out pipe
+// myReadStream.on('data', function(chunk){
+//     console.log("new chunk recived");
+//     myWriteStream.write(chunk);
+// });
+
+// with pipes
+myReadStream.pipe(myWriteStream);
 
 
 
