@@ -2,8 +2,11 @@ var express = require('express');
 
 var app = express();
 
+app.set('view engine', 'ejs')
+
+// respond with html page
 app.get('/', function(req, res){
-    res.send('this is home page');
+    res.sendFile(__dirname + '/index.html');
 });
 
 // access the parameter in url like id
