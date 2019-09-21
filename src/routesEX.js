@@ -8,6 +8,9 @@ var server = http.createServer(function (req, res) {
         res.writeHead(200, {'content-type': 'text/html'});
         fs.createReadStream(__dirname + '/index.html').pipe(res);
 
+    }else{
+        res.writeHead(200, {'content-type': 'text/html'})
+        fs.createReadStream(__dirname + '/404.html').pipe(res);
     }
 });
 
