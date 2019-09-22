@@ -14,7 +14,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/contact', function(req, res){
-    res.render('index');
+    res.render('contact', {qr: req.query});
 });
 
 // access the parameter in url like id
@@ -23,4 +23,4 @@ app.get('/profile/:id', function(req, res){
     res.render('profile', {person: req.params.id, data: data});
 })
 
-app.listen(300);
+app.listen(3000);
