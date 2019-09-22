@@ -1,6 +1,9 @@
 var express = require('express');
+var bodyParser = require('body-parser');  // helping for post request
 
 var app = express();
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.set('view engine', 'ejs')
 
@@ -14,7 +17,11 @@ app.get('/', function(req, res){
 });
 
 app.get('/contact', function(req, res){
-    res.render('contact', {qr: req.query});
+    res.render('contact', {qs: req.query});
+});
+
+app.post('/contact', urlencodedParser, function(req, res){
+    res.render('contact-success', {data: req.body});
 });
 
 // access the parameter in url like id
