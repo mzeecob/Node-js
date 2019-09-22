@@ -4,13 +4,17 @@ var app = express();
 
 app.set('view engine', 'ejs')
 
-// respond with html page
+
+// middleware
+app.use('/assets', express.static('assets'));
+
+
 app.get('/', function(req, res){
     res.render('index');
 });
 
 app.get('/contact', function(req, res){
-    res.render('contact');
+    res.render('index');
 });
 
 // access the parameter in url like id
@@ -19,4 +23,4 @@ app.get('/profile/:id', function(req, res){
     res.render('profile', {person: req.params.id, data: data});
 })
 
-app.listen(3000);
+app.listen(300);
