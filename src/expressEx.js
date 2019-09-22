@@ -11,7 +11,8 @@ app.get('/', function(req, res){
 
 // access the parameter in url like id
 app.get('/profile/:id', function(req, res){
-    res.send("you have request the user with this id " + req.params.id);
+    var data = {age: 21, job: 'Programmer', hobbie: ['basket ball', 'fight', 'eat']}
+    res.render('profile', {person: req.params.id, data: data});
 })
 
 app.listen(3000);
