@@ -6,7 +6,11 @@ app.set('view engine', 'ejs')
 
 // respond with html page
 app.get('/', function(req, res){
-    res.sendFile(__dirname + '/index.html');
+    res.render('index');
+});
+
+app.get('/contact', function(req, res){
+    res.render('contact');
 });
 
 // access the parameter in url like id
